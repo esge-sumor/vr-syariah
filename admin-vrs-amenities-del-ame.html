@@ -27,6 +27,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
   <style>
   #button-add {
     display:flex-box;
@@ -325,7 +329,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <i class="fas fa-edit"></i>
                           <span></span>
                         </span>
-                        <span class="btn btn-danger col start">
+                        <span type="button" class="btn btn-danger col start" data-toggle="modal" data-target="#modal-danger">
                           <i class="fas fa-cut"></i>
                           <span></span>
                         </span>
@@ -347,9 +351,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+    <div class="modal fade" id="modal-danger">
+      <div class="modal-dialog">
+        <div class="modal-content bg-danger">
+          <div class="modal-header">
+            <h4 class="modal-title">Warning!</h4>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          <div class="modal-body">
+            <p>Are you sure deleted the amenities?&hellip;</p>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Of course!</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
   </div>
   <!-- /.content-wrapper -->
-
+  <!-- /.modal -->
   <!-- Control Sidebar -->
   <!-- <aside class="control-sidebar control-sidebar-dark">
     Control sidebar content goes here
@@ -394,6 +418,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- Page specific script -->
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -410,6 +436,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
       "responsive": true,
     });
   });
+
+  $('.toastsDefaultDanger').click(function() {
+    $(document).Toasts('create', {
+      class: 'bg-danger',
+      title: 'Toast Title',
+      subtitle: 'Subtitle',
+      body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+    })
+  });
 </script>
+</body>
 </body>
 </html>
