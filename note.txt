@@ -1,0 +1,5 @@
+sugestion of admin master
+1. create column  with adding edit &/ delete
+tricky in edit or update calendar
+
+bed type section:
